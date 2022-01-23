@@ -1,0 +1,112 @@
+* {
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+h1 {
+    font-size: 40px;
+    margin-left: 50px;
+}
+
+#body {
+    width: innerWidth;
+    border: 5px solid black;
+    border-radius: 100px;
+    margin: 20px;
+    padding: 50px;
+}
+
+#add {
+    width: 85%;
+    border: 5px solid black;
+    margin: auto;
+    margin-bottom: 50px;
+    border-radius: 100px;
+    padding: 5%;
+}
+
+
+#input {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.label {
+    display: flex;
+}
+
+input[type=text] {
+    margin-left: 25px;
+    margin-top: 15px;
+    width: 50%;
+    height: 40%;
+}
+
+input[type=number] {
+    margin-left: 25px;
+    margin-top: 15px;
+    width: 15%;
+    height: 40%;
+}
+
+input[type=checkbox] {
+    margin-left: 0px;
+    margin-top: 18px;
+    width: 15%;
+    height: 40%;
+}
+
+input[type=submit] {
+    margin-left: 80%;
+    width: 150px;
+    height: 50px;
+    border: 3px solid black;
+    border-radius: 50px;
+    background: white;
+}
+
+input[type=submit]:active {
+    background: gray;
+}
+
+#archive {
+    width: 85%;
+    border: 5px solid black;
+    margin: auto;
+    border-radius: 100px;
+    padding: 5%;
+}
+
+#archive {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.book {
+    border: 5px solid black;
+    border-radius: 50px;
+    margin: 3%;
+    padding: 5%;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.read {
+    height: 50px;
+    border: 3px solid black;
+    border-radius: 50px;
+    background: white;
+}
+
+.read:active {
+    background: gray;
+}
+
+.remove {
+    float: right;
+    margin: 15px;
+    width: 150px;
+    height: 30px;
+}
