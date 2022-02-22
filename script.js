@@ -1,10 +1,8 @@
 
 const addBook = document.querySelector("#submit"); 
 const archive = document.querySelector("#archive"); 
-let readBtn;
-let removeBtn;
 
-let myLibrary = [];
+
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -24,16 +22,10 @@ function addBookToLibrary() {
 
   let newBook = new Book(titleVal,authorVal,pagesVal, readCheck)
   console.log(newBook);
-  myLibrary.push(newBook);
-
-  document.getElementById('archive').innerHTML = '';
-
-  for (let i = 0; i < myLibrary.length; i++) {
-    console.log("hey");
-    const el = myLibrary[i];
 
     let book = document.createElement("div");
     book.classList.add("book");
+   
 
     let details = document.createElement("div");
     details.classList.add("details");
@@ -41,26 +33,26 @@ function addBookToLibrary() {
     book.appendChild(details);
 
     let title = document.createElement("p");
-    title.textContent = `Title: ${el.title}`;
+    title.textContent = `Title: ${newBook.title}`;
 
     let author = document.createElement("p");
-    author.textContent = `Author: ${el.author}`;
+    author.textContent = `Author: ${newBook.author}`;
 
     let pages = document.createElement("p");
-    pages.textContent = `${el.pages} pages`;
+    pages.textContent = `${newBook.pages} pages`;
 
-    let read = document.createElement("button");
-    read.classList.add("read");
-    if (el.read) {
-      read.textContent = "Read";
+    let hasread = document.createElement("button");
+    hasread.classList.add("read");
+    if (readCheck) {
+      hasread.textContent = "Read";
     } else {
-      read.textContent = "Not Yet Read";
+      hasread.textContent = "Not Yet Read";
     }
 
     details.appendChild(title);
     details.appendChild(author);
     details.appendChild(pages);
-    details.appendChild(read);
+    details.appendChild(hasread);
 
     let remove = document.createElement("button");
     remove.classList.add("remove")
@@ -68,16 +60,21 @@ function addBookToLibrary() {
     book.appendChild(remove);
 
     document.querySelector("#archive").appendChild(book);
-    readBtn = document.querySelectorAll(".read");
-    removeBtn = document.querySelectorAll(".remove");
-  }
-  readBtn.forEach(el => el.addEventListener("click", function() {
-    if (el.textContent == "Read") {
-      el.textContent = "Not Yet Read"
-    } else {
-      el.textContent = "Read"
-    }
-  }));
+    const readBtn = document.querySelectorAll(".read");
+    const removeBtn = document.querySelectorAll(".remove");
+
+
+    readBtn.forEach(el => el.addEventListener("click", () => {
+
+      if (el.innerText == "Read") {
+        el.innerText = "Not Yet Read";
+      } else if(el.innerText == "Not Yet Read") {
+        el.innerText = "Read";
+      }
+
+    }, false))
+   
+  
   
   removeBtn.forEach(el => el.addEventListener("click", function() {
     (el.parentElement).remove();
