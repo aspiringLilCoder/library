@@ -1,7 +1,6 @@
 
-const addBook = document.querySelector("#submit"); 
+const form = document.querySelector("#add"); 
 const archive = document.querySelector("#archive"); 
-
 
 class Book {
   constructor(title, author, pages, read) {
@@ -14,7 +13,10 @@ class Book {
 }
 
 
-addBook.addEventListener("click", addBookToLibrary);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  addBookToLibrary();
+});
 
 function addBookToLibrary() {
   const titleVal = document.querySelector("#title").value; 
@@ -62,19 +64,16 @@ function addBookToLibrary() {
     book.appendChild(remove);
 
     document.querySelector("#archive").appendChild(book);
-    const readBtn = document.querySelectorAll(".read");
     const removeBtn = document.querySelectorAll(".remove");
 
 
-    readBtn.forEach(el => el.addEventListener("click", () => {
-
-      if (el.innerText == "Read") {
-        el.innerText = "Not Yet Read";
-      } else if(el.innerText == "Not Yet Read") {
-        el.innerText = "Read";
+    hasread.addEventListener("click", () => {
+      if (hasread.textContent == "Read") {
+        hasread.textContent = "Not Yet Read";
+      } else if(hasread.textContent == "Not Yet Read") {
+        hasread.textContent = "Read";
       }
-
-    }, false))
+    })
    
   
   
