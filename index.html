@@ -13,21 +13,21 @@
 <body>
     <div id="body">
         <h1>The Archive</h1>
-        <div id="add">
+        <form id="add">
             <div id="input">
                 <div class="label">
                     <p id="titleLabel">Title:</p>
-                    <input type="text" name="title" id="title">
+                    <input type="text" name="title" id="title" required>
                 </div>
 
                 <div class="label">
                     <p id="pagesLabel">No of Pages:</p>
-                    <input type="number" name="pages" id="pages">
+                    <input type="number" name="pages" id="pages" required>
                 </div>
 
                 <div class="label">
                     <p id="authorLabel">Author:</p>
-                    <input type="text" name="author" id="author">    
+                    <input type="text" name="author" id="author" required>    
                 </div>
 
                 <div class="label">
@@ -37,7 +37,7 @@
 
             </div>
             <input type="submit" name="submit" id="submit" value="Add New Book">
-        </div>
+        </form>
         <div id="archive">
             <!-- <div class="book">
                 <div class="details">
